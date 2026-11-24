@@ -28,10 +28,6 @@
 
 ### 📈 activity
 
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=byw1&starting_year=2026&theme=transparent&hide_border=true&background=000000&ring=A78BFA&fire=C084FC&currStreakLabel=A78BFA&sideNums=FFFFFF&currStreakNum=FFFFFF&sideLabels=A1A1AA&dates=71717A&stroke=27272A&border_radius=24" alt="Contribution streak" width="100%">
-</p>
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/byw1/byw1/output/contributions-dark.svg">
   <img src="https://raw.githubusercontent.com/byw1/byw1/output/contributions.svg" alt="Contributions in the last year" height="28">
