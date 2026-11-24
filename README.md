@@ -2,14 +2,6 @@
   <img src="./assets/banner.svg" alt="William Lee's signature" width="100%">
 </a>
 
-<p align="center">
-  <a href="https://bywilliaml.com"><img src="https://img.shields.io/badge/bywilliaml.com-000000?style=for-the-badge&logo=googlechrome&logoColor=a78bfa" alt="Website"></a>
-  <a href="https://bywilliaml.substack.com"><img src="https://img.shields.io/badge/Substack-000000?style=for-the-badge&logo=substack&logoColor=FF6719" alt="Substack"></a>
-  <a href="https://linkedin.com/in/bywilliaml"><img src="https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="LinkedIn"></a>
-  <a href="https://x.com/bywilliaml"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X"></a>
-  <a href="https://instagram.com/bywilliaml"><img src="https://img.shields.io/badge/Instagram-000000?style=for-the-badge&logo=instagram&logoColor=E4405F" alt="Instagram"></a>
-</p>
-
 <br>
 
 ### projects
@@ -57,3 +49,5 @@
 <br>
 
 <img src="./assets/bookshelf.svg" alt="My favorite reads: Principles, Steve Jobs, Elon Musk, Good to Great, The Republic, Your Next Five Moves" width="100%">
+
+<p align="center"><sub><a href="./docs/SETUP.md">how this profile works</a></sub></p>

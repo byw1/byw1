@@ -1,17 +1,21 @@
 """Build the SVG assets for byw1's GitHub profile README.
 
+    pip install fonttools brotli pillow
+    python3 scripts/build-assets.py .        # writes ./assets/*.svg
+
+
 Every SVG is self-contained (fonts subset + base64, icons inlined) because
 GitHub serves README images through its camo proxy as <img>, which can't load
 external fonts or images. CSS animations do run there.
 """
-import base64, io, os, sys, html, random
+import base64, io, json, os, re, sys, html, random, urllib.request
 from fontTools import subset
 from fontTools.ttLib import TTFont
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SITE = "/home/user/bywilliaml.com"
-OUT = sys.argv[1]
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(HERE)
+FONT_DIR = f"{HERE}/.fonts"  # downloaded on first run, gitignored
 os.makedirs(f"{OUT}/assets", exist_ok=True)
 
 FONTS = {
@@ -31,7 +35,12 @@ def font_face(fam, text):
     opts.layout_features = ["kern", "liga"]
     opts.name_IDs = []
     opts.notdef_outline = True
-    f = TTFont(f"{HERE}/fonts/{FONTS[fam]}")
+    path = f"{FONT_DIR}/{FONTS[fam]}"
+    if not os.path.exists(path):
+        os.makedirs(FONT_DIR, exist_ok=True)
+        urllib.request.urlretrieve(
+            f"https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/{FONTS[fam]}", path)
+    f = TTFont(path)
     s = subset.Subsetter(opts)
     s.populate(text=text + " ")
     s.subset(f)
@@ -48,8 +57,7 @@ def fonts_css(uses):
 
 
 def icon_b64(name, size=112):
-    local = f"{HERE}/icons/{name}.png"
-    im = Image.open(local if os.path.exists(local) else f"{SITE}/public/projects/{name}.png").convert("RGBA")
+    im = Image.open(f"{HERE}/icons/{name}.png").convert("RGBA")
     im = im.resize((size, size), Image.LANCZOS)
     buf = io.BytesIO()
     im.save(buf, "PNG", optimize=True)
@@ -60,10 +68,8 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
-# Signature paths, straight from src/components/ui/signature-intro.tsx.
-sig_src = open(f"{SITE}/src/components/ui/signature-intro.tsx").read()
-import re
-SIG = re.findall(r"'(M [^']+)'", sig_src)
+# Signature paths, traced for bywilliaml.com (src/components/ui/signature-intro.tsx).
+SIG = json.load(open(f"{HERE}/signature.json"))
 assert len(SIG) == 2, SIG
 
 # ---------------------------------------------------------------- banner
