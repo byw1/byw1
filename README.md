@@ -1,0 +1,61 @@
+<a href="https://bywilliaml.com">
+  <img src="./assets/banner.svg" alt="William Lee: operator who builds the tools that make businesses faster" width="100%">
+</a>
+
+<p align="center">
+  <a href="https://bywilliaml.com"><img src="https://img.shields.io/badge/bywilliaml.com-000000?style=for-the-badge&logo=googlechrome&logoColor=a78bfa" alt="Website"></a>
+  <a href="https://bywilliaml.substack.com"><img src="https://img.shields.io/badge/Substack-000000?style=for-the-badge&logo=substack&logoColor=FF6719" alt="Substack"></a>
+  <a href="https://linkedin.com/in/bywilliaml"><img src="https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="LinkedIn"></a>
+  <a href="https://x.com/bywilliaml"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X"></a>
+  <a href="https://youtube.com/@bywilliaml"><img src="https://img.shields.io/badge/YouTube-000000?style=for-the-badge&logo=youtube&logoColor=FF0000" alt="YouTube"></a>
+  <a href="https://instagram.com/bywilliaml"><img src="https://img.shields.io/badge/Instagram-000000?style=for-the-badge&logo=instagram&logoColor=E4405F" alt="Instagram"></a>
+</p>
+
+<br>
+
+### 👋 hey, i'm william
+
+I run operations, and I build the tools that make the businesses I run faster.
+
+- 🎧 **Head of Operations** at a music marketing agency working with major record labels
+- 🛠️ When buying software is slower or more expensive, I ship it myself with AI-assisted development
+- 🚀 Launched my first real business at 19 and passed **$100K in its first 16 days**
+- 🎙️ Started a business networking club that grew past **100,000 members on Clubhouse**
+- ✍️ Writing about all of it on **[Substack](https://bywilliaml.substack.com)**
+- 📍 Born and raised in **Los Angeles**
+
+<br>
+
+### 🧰 things i'm building
+
+<p align="center">
+  <a href="https://bywilliaml.com/charades"><img src="./assets/project-charades.svg" alt="Charades: a forehead-card party game where you make your own decks" width="49%"></a>
+  <a href="https://bywilliaml.com/imposter"><img src="./assets/project-imposter.svg" alt="Imposter: everyone knows the secret word, except one of you" width="49%"></a>
+  <a href="https://hired.tools"><img src="./assets/project-hired.svg" alt="Hired: the ATS for applicants" width="49%"></a>
+  <a href="https://comms.support"><img src="./assets/project-comms.svg" alt="Comms: a shared team inbox for iMessage" width="49%"></a>
+</p>
+
+<p align="center"><sub>more at <a href="https://bywilliaml.com/projects">bywilliaml.com/projects</a></sub></p>
+
+<br>
+
+### 📈 activity
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=byw1&theme=transparent&hide_border=true&background=000000&ring=A78BFA&fire=C084FC&currStreakLabel=A78BFA&sideNums=FFFFFF&currStreakNum=FFFFFF&sideLabels=A1A1AA&dates=71717A&stroke=27272A&border_radius=24" alt="Contribution streak" width="100%">
+</p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/byw1/byw1/output/snake-dark.svg">
+  <img src="https://raw.githubusercontent.com/byw1/byw1/output/snake.svg" alt="A snake eating my contribution graph" width="100%">
+</picture>
+
+<br>
+
+<img src="./assets/bookshelf.svg" alt="On the shelf: Principles, Steve Jobs, Elon Musk, Good to Great, The Republic, Your Next Five Moves" width="100%">
+
+<br><br>
+
+<a href="https://bywilliaml.com">
+  <img src="./assets/footer.svg" alt="Thanks for stopping by. bywilliaml.com" width="100%">
+</a>
