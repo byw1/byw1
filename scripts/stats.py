@@ -110,7 +110,7 @@ total = sum(s for s, _ in langs.values()) or 1
 top = sorted(langs.items(), key=lambda kv: -kv[1][0])[:5]
 shown = sum(s for _, (s, _) in top)
 rows = [(n, c, s / total * 100) for n, (s, c) in top]
-if total - shown > 0:
+if (total - shown) / total >= 0.005:
     rows.append(("Other", "#3f3f46", (total - shown) / total * 100))
 
 # ------------------------------------------------------------------ svg
