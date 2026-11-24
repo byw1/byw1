@@ -12,7 +12,7 @@
 
 <br>
 
-### 🧰 some of my projects
+### projects
 
 <p align="center">
   <a href="https://hired.tools"><img src="./assets/project-hired.svg" alt="Hired: the ATS for applicants" width="49%"></a>
@@ -25,8 +25,6 @@
 <p align="center"><sub>more at <a href="https://bywilliaml.com/projects">bywilliaml.com/projects</a></sub></p>
 
 <br>
-
-### 📈 activity
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js">
