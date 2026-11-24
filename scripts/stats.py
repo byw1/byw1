@@ -47,7 +47,12 @@ for y in sorted(years):
         for d in w["contributionDays"]:
             days[d["date"]] = d["contributionCount"]
 
-dates = sorted(days)
+# The calendar runs to Dec 31, so drop days that haven't happened yet. Allow
+# one day of slack for time zones ahead of UTC.
+horizon = (dt.datetime.now(dt.timezone.utc).date() + dt.timedelta(days=1)).isoformat()
+dates = sorted(d for d in days if d <= horizon)
+while len(dates) > 1 and dates[-1] > dt.datetime.now(dt.timezone.utc).date().isoformat() and days[dates[-1]] == 0:
+    dates.pop()
 today = dates[-1]
 
 longest, longest_span, run, run_start = 0, None, 0, None
