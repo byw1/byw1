@@ -33,6 +33,11 @@
 </p>
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/byw1/byw1/output/contributions-dark.svg">
+  <img src="https://raw.githubusercontent.com/byw1/byw1/output/contributions.svg" alt="Contributions in the last year" height="28">
+</picture>
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/byw1/byw1/output/snake-dark.svg">
   <img src="https://raw.githubusercontent.com/byw1/byw1/output/snake.svg" alt="A snake eating my contribution graph" width="100%">
 </picture>

@@ -21,6 +21,28 @@ jobs:
             dist/snake.svg?palette=github-light&color_snake=#7c3aed&color_dots=#ebedf0,#ddd6fe,#c4b5fd,#a78bfa,#7c3aed
             dist/snake-dark.svg?palette=github-dark&color_snake=#c084fc&color_dots=#161b22,#2e1065,#5b21b6,#7c3aed,#a78bfa
 
+      - name: Count contributions in the last year
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOGIN: ${{ github.repository_owner }}
+        run: |
+          total=$(gh api graphql -f login="$LOGIN" -f query='
+            query($login: String!) {
+              user(login: $login) {
+                contributionsCollection { contributionCalendar { totalContributions } }
+              }
+            }' --jq '.data.user.contributionsCollection.contributionCalendar.totalContributions')
+          label=$(python3 -c "print(f'{int(\"$total\"):,}')")
+          for theme in light dark; do
+            if [ "$theme" = dark ]; then fill="#e6edf3"; out=dist/contributions-dark.svg; else fill="#1f2328"; out=dist/contributions.svg; fi
+            cat > "$out" <<SVG
+          <svg xmlns="http://www.w3.org/2000/svg" width="420" height="28" viewBox="0 0 420 28" role="img" aria-label="$label contributions in the last year">
+            <text x="0" y="20" fill="$fill" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="16">$label contributions in the last year</text>
+          </svg>
+          SVG
+          done
+          cat dist/contributions.svg
+
       - uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
