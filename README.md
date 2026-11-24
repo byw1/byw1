@@ -29,10 +29,11 @@ I run operations, and I build the tools that make the businesses I run faster.
 ### 🧰 things i'm building
 
 <p align="center">
+  <a href="https://hired.tools"><img src="./assets/project-hired.svg" alt="Hired: the ATS for applicants" width="49%"></a>
+  <a href="https://recruited.tools"><img src="./assets/project-recruited.svg" alt="Recruited: post one role to every job board, split-test it, and see which brings people worth hiring" width="49%"></a>
+  <a href="https://comms.support"><img src="./assets/project-comms.svg" alt="Comms: a shared team inbox for iMessage" width="49%"></a>
   <a href="https://bywilliaml.com/charades"><img src="./assets/project-charades.svg" alt="Charades: a forehead-card party game where you make your own decks" width="49%"></a>
   <a href="https://bywilliaml.com/imposter"><img src="./assets/project-imposter.svg" alt="Imposter: everyone knows the secret word, except one of you" width="49%"></a>
-  <a href="https://hired.tools"><img src="./assets/project-hired.svg" alt="Hired: the ATS for applicants" width="49%"></a>
-  <a href="https://comms.support"><img src="./assets/project-comms.svg" alt="Comms: a shared team inbox for iMessage" width="49%"></a>
 </p>
 
 <p align="center"><sub>more at <a href="https://bywilliaml.com/projects">bywilliaml.com/projects</a></sub></p>

@@ -48,7 +48,8 @@ def fonts_css(uses):
 
 
 def icon_b64(name, size=112):
-    im = Image.open(f"{SITE}/public/projects/{name}.png").convert("RGBA")
+    local = f"{HERE}/icons/{name}.png"
+    im = Image.open(local if os.path.exists(local) else f"{SITE}/public/projects/{name}.png").convert("RGBA")
     im = im.resize((size, size), Image.LANCZOS)
     buf = io.BytesIO()
     im.save(buf, "PNG", optimize=True)
@@ -198,18 +199,21 @@ open(f"{OUT}/assets/banner.svg", "w").write(banner)
 
 # ---------------------------------------------------------------- project cards
 PROJECTS = [
+    dict(slug="hired", name="Hired", status="live", live=True,
+         tagline=["The ATS for applicants. Theirs keeps", "a record on you; this one keeps theirs."],
+         accent=("#e4e4e7", "#71717a"), tags=["web", "open source"]),
+    dict(slug="recruited", name="Recruited", status="live", live=True,
+         tagline=["Post one role to every job board, split-test", "it, and see which brings people worth hiring."],
+         accent=("#e7dcc8", "#b08d57"), tags=["web", "open source"]),
+    dict(slug="comms", name="Comms", status="live", live=True,
+         tagline=["A shared team inbox for iMessage,", "with a help desk built in."],
+         accent=("#60a5fa", "#818cf8"), tags=["web", "open source"]),
     dict(slug="charades", name="Charades", status="iPhone · soon", live=False,
          tagline=["A forehead-card party game where you", "make your own decks. Offline, no ads."],
          accent=("#9B5CFF", "#FFE500"), tags=["iOS", "open source"]),
     dict(slug="imposter", name="Imposter", status="iPhone · soon", live=False,
          tagline=["Everyone knows the secret word,", "except one of you. Offline, no ads."],
          accent=("#FF4560", "#C8FF2E"), tags=["iOS", "open source"]),
-    dict(slug="hired", name="Hired", status="live", live=True,
-         tagline=["The ATS for applicants. Theirs keeps", "a record on you; this one keeps theirs."],
-         accent=("#e4e4e7", "#71717a"), tags=["web", "open source"]),
-    dict(slug="comms", name="Comms", status="live", live=True,
-         tagline=["A shared team inbox for iMessage,", "with a help desk built in."],
-         accent=("#60a5fa", "#818cf8"), tags=["web", "open source"]),
 ]
 CW, CH = 600, 250
 for i, p in enumerate(PROJECTS):
