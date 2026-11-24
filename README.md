@@ -49,5 +49,3 @@
 <br>
 
 <img src="./assets/bookshelf.svg" alt="My favorite reads: Principles, Steve Jobs, Elon Musk, Good to Great, The Republic, Your Next Five Moves" width="100%">
-
-<p align="center"><sub><a href="./docs/SETUP.md">how this profile works</a></sub></p>
