@@ -28,6 +28,24 @@
 
 ### 📈 activity
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js">
+  <img src="https://img.shields.io/badge/React-000000?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=3178C6" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-000000?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="three.js">
+  <img src="https://img.shields.io/badge/Supabase-000000?style=for-the-badge&logo=supabase&logoColor=3FCF8E" alt="Supabase">
+  <img src="https://img.shields.io/badge/PostgreSQL-000000?style=for-the-badge&logo=postgresql&logoColor=4169E1" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Railway-000000?style=for-the-badge&logo=railway&logoColor=white" alt="Railway">
+  <img src="https://img.shields.io/badge/Cloudflare-000000?style=for-the-badge&logo=cloudflare&logoColor=F38020" alt="Cloudflare">
+  <img src="https://img.shields.io/badge/Resend-000000?style=for-the-badge&logo=resend&logoColor=white" alt="Resend">
+  <img src="https://img.shields.io/badge/Claude-000000?style=for-the-badge&logo=claude&logoColor=D97757" alt="Claude">
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/byw1/byw1/output/stats.svg" alt="Current streak, longest streak and top languages" width="100%">
+</p>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/byw1/byw1/output/contributions-dark.svg">
   <img src="https://raw.githubusercontent.com/byw1/byw1/output/contributions.svg" alt="Contributions in the last year" height="28">

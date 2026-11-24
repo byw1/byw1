@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@v4
+
       - uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -44,6 +46,7 @@ jobs:
           SVG
           done
           cat dist/contributions.svg
+          python3 scripts/stats.py "$LOGIN" dist/stats.svg
 
       - uses: crazy-max/ghaction-github-pages@v4
         with:
