@@ -26,6 +26,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LOGIN: ${{ github.repository_owner }}
         run: |
+          # snk runs in Docker, so dist/ comes back owned by root.
+          sudo chown -R "$(id -u):$(id -g)" dist
           total=$(gh api graphql -f login="$LOGIN" -f query='
             query($login: String!) {
               user(login: $login) {
