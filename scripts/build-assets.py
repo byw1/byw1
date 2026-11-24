@@ -4,7 +4,7 @@ Every SVG is self-contained (fonts subset + base64, icons inlined) because
 GitHub serves README images through its camo proxy as <img>, which can't load
 external fonts or images. CSS animations do run there.
 """
-import base64, io, os, sys, html
+import base64, io, os, sys, html, random
 from fontTools import subset
 from fontTools.ttLib import TTFont
 from PIL import Image
@@ -67,133 +67,28 @@ SIG = re.findall(r"'(M [^']+)'", sig_src)
 assert len(SIG) == 2, SIG
 
 # ---------------------------------------------------------------- banner
-W, H = 1200, 440
-eyebrow = "WILLIAM LEE  ·  LOS ANGELES"
-tag = "Operator who builds the tools that make businesses faster."
-status = "code maxxing"
-handle = "@bywilliaml"
-
-# Seeded starfield so rebuilds are stable.
-import random
-rnd = random.Random(33)
-stars = []
-for i in range(70):
-    x, y = rnd.uniform(16, W - 16), rnd.uniform(16, H - 16)
-    r = rnd.choice([0.6, 0.8, 1.0, 1.3])
-    d = rnd.uniform(0, 6)
-    dur = rnd.uniform(3, 7)
-    stars.append(
-        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" class="st" style="animation-duration:{dur:.1f}s;animation-delay:-{d:.1f}s"/>'
-    )
-
-# Signature coordinate box is roughly x 86..876, y 52..337. Centre it.
-SIG_SCALE = 0.62
-sig_w = (876 - 86) * SIG_SCALE
+# Just the signature drawing itself on black.
+W, H = 1200, 360
+SIG_SCALE = 0.72
 sig_tx = W / 2 - (86 + (876 - 86) / 2) * SIG_SCALE
-sig_ty = 34 - 52 * SIG_SCALE + 6
-
+sig_ty = H / 2 - (52 + (337 - 52) / 2) * SIG_SCALE
 stroke1_dur, stroke2_dur, lift = 2.6, 0.9, 0.12
-
-banner = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="t d">
-<title id="t">William Lee</title>
-<desc id="d">William Lee's signature drawing itself over a night sky. {esc(tag)} Status: {status}.</desc>
+banner = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="t">
+<title id="t">William Lee's signature</title>
 <defs>
 <style>
-{fonts_css({"P3": tag + eyebrow, "P4": status + handle + "bywilliaml.com", "P6": eyebrow})}
-.st{{fill:#fff;opacity:.15;animation:tw ease-in-out infinite}}
-@keyframes tw{{0%,100%{{opacity:.08}}50%{{opacity:.55}}}}
-.sig path{{fill:none;stroke:url(#ink);stroke-width:7.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}}
+.sig path{{fill:none;stroke:#fff;stroke-width:7.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}}
 .s1{{animation:draw {stroke1_dur}s cubic-bezier(.45,.05,.35,.95) .4s forwards}}
 .s2{{animation:draw {stroke2_dur}s cubic-bezier(.45,.05,.35,.95) {0.4 + stroke1_dur + lift:.2f}s forwards}}
 @keyframes draw{{to{{stroke-dashoffset:0}}}}
-.rise{{opacity:0;transform:translateY(10px);animation:rise .9s cubic-bezier(.22,1,.36,1) forwards}}
-@keyframes rise{{to{{opacity:1;transform:none}}}}
-.glow{{animation:breathe 9s ease-in-out infinite;transform-origin:600px 0}}
-@keyframes breathe{{0%,100%{{opacity:.85;transform:scale(1)}}50%{{opacity:1;transform:scale(1.08)}}}}
-.dot{{animation:pulse 2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}}
-@keyframes pulse{{0%,100%{{opacity:1}}50%{{opacity:.35}}}}
-.ring{{animation:ring 2s ease-out infinite;transform-box:fill-box;transform-origin:center}}
-@keyframes ring{{0%{{opacity:.6;transform:scale(1)}}100%{{opacity:0;transform:scale(2.6)}}}}
-.t-eyebrow{{font-family:P6,sans-serif;font-size:13px;letter-spacing:4.5px;fill:#a1a1aa}}
-.t-tag{{font-family:P3,sans-serif;font-size:25px;fill:#e4e4e7}}
-.t-pill{{font-family:P4,sans-serif;font-size:14px;fill:#d4d4d8}}
-@media (prefers-reduced-motion:reduce){{
- .sig path{{animation:none;stroke-dashoffset:0}}
- .rise{{animation:none;opacity:1;transform:none}}
- .st,.glow,.dot,.ring{{animation:none}}
-}}
+@media (prefers-reduced-motion:reduce){{.sig path{{animation:none;stroke-dashoffset:0}}}}
 </style>
-<clipPath id="card"><rect width="{W}" height="{H}" rx="28"/></clipPath>
-<radialGradient id="g1" cx="50%" cy="0%" r="62%">
- <stop offset="0" stop-color="#8b5cf6" stop-opacity=".42"/>
- <stop offset=".55" stop-color="#6366f1" stop-opacity=".08"/>
- <stop offset="1" stop-color="#000" stop-opacity="0"/>
-</radialGradient>
-<radialGradient id="g2" cx="92%" cy="105%" r="45%">
- <stop offset="0" stop-color="#c084fc" stop-opacity=".18"/>
- <stop offset="1" stop-color="#000" stop-opacity="0"/>
-</radialGradient>
-<radialGradient id="g3" cx="6%" cy="100%" r="40%">
- <stop offset="0" stop-color="#60a5fa" stop-opacity=".12"/>
- <stop offset="1" stop-color="#000" stop-opacity="0"/>
-</radialGradient>
-<linearGradient id="ink" gradientUnits="userSpaceOnUse" x1="86" y1="0" x2="876" y2="0">
- <stop offset="0" stop-color="#ffffff"/>
- <stop offset=".6" stop-color="#f5f3ff"/>
- <stop offset="1" stop-color="#c4b5fd"/>
-</linearGradient>
-<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
- <circle cx="1" cy="1" r="1" fill="#fff" fill-opacity=".07"/>
-</pattern>
-<linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
- <stop offset="0" stop-color="#fff" stop-opacity=".9"/>
- <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-</linearGradient>
-<mask id="gridmask"><rect width="{W}" height="{H}" fill="url(#fade)"/></mask>
-<filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
-<linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
- <stop offset="0" stop-color="#fff" stop-opacity=".22"/>
- <stop offset=".5" stop-color="#fff" stop-opacity=".04"/>
- <stop offset="1" stop-color="#a78bfa" stop-opacity=".25"/>
-</linearGradient>
 </defs>
-<g clip-path="url(#card)">
- <rect width="{W}" height="{H}" fill="#000"/>
- <rect width="{W}" height="{H}" fill="url(#grid)" mask="url(#gridmask)"/>
- <rect class="glow" width="{W}" height="{H}" fill="url(#g1)"/>
- <rect width="{W}" height="{H}" fill="url(#g2)"/>
- <rect width="{W}" height="{H}" fill="url(#g3)"/>
- {''.join(stars)}
- <g transform="translate({sig_tx:.1f} {sig_ty:.1f}) scale({SIG_SCALE})">
-  <g class="sig" opacity=".35" filter="url(#soft)">
-   <path class="s1" pathLength="1" d="{SIG[0]}"/>
-   <path class="s2" pathLength="1" d="{SIG[1]}"/>
-  </g>
-  <g class="sig">
-   <path class="s1" pathLength="1" d="{SIG[0]}"/>
-   <path class="s2" pathLength="1" d="{SIG[1]}"/>
-  </g>
- </g>
- <g class="rise" style="animation-delay:3.6s">
-  <text x="{W/2}" y="296" text-anchor="middle" class="t-eyebrow">{esc(eyebrow)}</text>
- </g>
- <g class="rise" style="animation-delay:3.85s">
-  <text x="{W/2}" y="340" text-anchor="middle" class="t-tag">{esc(tag)}</text>
- </g>
- <g class="rise" style="animation-delay:4.1s">
-  <g transform="translate({W/2 - 175} 368)">
-   <rect width="160" height="34" rx="17" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".12"/>
-   <circle class="ring" cx="22" cy="17" r="4.5" fill="none" stroke="#4ade80" stroke-width="1.5"/>
-   <circle class="dot" cx="22" cy="17" r="4.5" fill="#4ade80"/>
-   <text x="36" y="22" class="t-pill">{status}</text>
-  </g>
-  <g transform="translate({W/2 + 15} 368)">
-   <rect width="160" height="34" rx="17" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".12"/>
-   <text x="80" y="22" text-anchor="middle" class="t-pill">{handle}</text>
-  </g>
- </g>
+<rect width="{W}" height="{H}" rx="28" fill="#000"/>
+<g class="sig" transform="translate({sig_tx:.1f} {sig_ty:.1f}) scale({SIG_SCALE})">
+ <path class="s1" pathLength="1" d="{SIG[0]}"/>
+ <path class="s2" pathLength="1" d="{SIG[1]}"/>
 </g>
-<rect x=".75" y=".75" width="{W-1.5}" height="{H-1.5}" rx="27.5" fill="none" stroke="url(#edge)" stroke-width="1.5"/>
 </svg>"""
 open(f"{OUT}/assets/banner.svg", "w").write(banner)
 
@@ -220,7 +115,7 @@ for i, p in enumerate(PROJECTS):
     a0, a1 = p["accent"]
     num = f"0{i+1}"
     text4 = "".join(p["tagline"]) + "".join(p["tags"]) + p["status"] + "↗"
-    css = fonts_css({"P7": p["name"] + num, "P3": "".join(p["tagline"]), "P4": "".join(p["tags"]) + p["status"]})
+    css = fonts_css({"P7": p["name"], "P3": "".join(p["tagline"]), "P4": "".join(p["tags"]) + p["status"]})
     pill_w = 22 + len(p["status"]) * 7.6 + 16
     pill_color = "#4ade80" if p["live"] else "#fbbf24"
     tag_svg, tx = "", 0
@@ -258,7 +153,6 @@ for i, p in enumerate(PROJECTS):
  <rect width="{CW}" height="{CH}" fill="#09090b"/>
  <rect width="{CW}" height="{CH}" fill="url(#glow)"/>
  <rect width="{CW}" height="{CH}" fill="url(#glow2)"/>
- <text x="{CW-20}" y="{CH-14}" text-anchor="end" class="num">{num}</text>
 </g>
 <g mask="url(#ring)">
  <rect width="{CW}" height="{CH}" rx="24" fill="#fff" fill-opacity=".09"/>
@@ -320,10 +214,10 @@ for i, (title, author, (c0, c1), ink) in enumerate(BOOKS):
 </g></g>"""
     x += w + 32
 shelf = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{BW}" height="{BH}" viewBox="0 0 {BW} {BH}" role="img" aria-labelledby="t">
-<title id="t">On the shelf: {esc(', '.join(f'{t} by {a}' for t, a, *_ in BOOKS))}</title>
+<title id="t">My favorite reads: {esc(', '.join(f'{t} by {a}' for t, a, *_ in BOOKS))}</title>
 <defs>
 <style>
-{fonts_css({"P6": "".join(t for t, *_ in BOOKS), "P3": "".join(a for _, a, *_ in BOOKS), "P4": "ON THE SHELF"})}
+{fonts_css({"P6": "".join(t for t, *_ in BOOKS), "P3": "".join(a for _, a, *_ in BOOKS), "P4": "MY FAVORITE READS"})}
 .bt{{font-family:P6,sans-serif;font-size:15px}}
 .ba{{font-family:P3,sans-serif;font-size:10.5px;opacity:.75}}
 .lbl{{font-family:P4,sans-serif;font-size:12px;letter-spacing:4px;fill:#71717a}}
@@ -339,7 +233,7 @@ shelf = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{BW}" height="{BH}" v
 <g clip-path="url(#c)">
  <rect width="{BW}" height="{BH}" fill="#000"/>
  <rect width="{BW}" height="{BH}" fill="url(#lamp)"/>
- <text x="{BW/2}" y="38" text-anchor="middle" class="lbl">ON THE SHELF</text>
+ <text x="{BW/2}" y="38" text-anchor="middle" class="lbl">MY FAVORITE READS</text>
  {spines}
  <rect x="110" y="268" width="{BW-220}" height="14" rx="3" fill="url(#wood)"/>
  <rect x="110" y="282" width="{BW-220}" height="20" fill="#000" fill-opacity=".6"/>
@@ -349,31 +243,6 @@ shelf = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{BW}" height="{BH}" v
 </svg>"""
 open(f"{OUT}/assets/bookshelf.svg", "w").write(shelf)
 
-# ---------------------------------------------------------------- footer
-FW, FH = 1200, 170
-fs = 0.26
-foot = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{FW}" height="{FH}" viewBox="0 0 {FW} {FH}" role="img" aria-labelledby="t">
-<title id="t">Thanks for stopping by. bywilliaml.com</title>
-<defs>
-<style>
-{fonts_css({"P3": "thanks for stopping by", "P4": "bywilliaml.com"})}
-.sig path{{fill:none;stroke:#8b5cf6;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s cubic-bezier(.45,.05,.35,.95) .3s forwards}}
-.sig .s2{{animation-duration:.8s;animation-delay:2.6s}}
-@keyframes draw{{to{{stroke-dashoffset:0}}}}
-.a{{font-family:P3,sans-serif;font-size:15px;fill:#71717a;letter-spacing:1px}}
-.b{{font-family:P4,sans-serif;font-size:15px;fill:#a78bfa;letter-spacing:1px}}
-@media (prefers-reduced-motion:reduce){{.sig path{{animation:none;stroke-dashoffset:0}}}}
-</style>
-<linearGradient id="hr" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a78bfa" stop-opacity="0"/><stop offset=".5" stop-color="#a78bfa" stop-opacity=".6"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></linearGradient>
-</defs>
-<rect x="300" y="4" width="600" height="1" fill="url(#hr)"/>
-<g class="sig" transform="translate({FW/2 - 481*fs:.1f} {28 - 52*fs:.1f}) scale({fs})">
- <path class="s1" pathLength="1" d="{SIG[0]}"/>
- <path class="s2" pathLength="1" d="{SIG[1]}"/>
-</g>
-<text x="{FW/2}" y="136" text-anchor="middle"><tspan class="a">thanks for stopping by  ·  </tspan><tspan class="b">bywilliaml.com</tspan></text>
-</svg>"""
-open(f"{OUT}/assets/footer.svg", "w").write(foot)
 
 for f in sorted(os.listdir(f"{OUT}/assets")):
     print(f, os.path.getsize(f"{OUT}/assets/{f}"))
