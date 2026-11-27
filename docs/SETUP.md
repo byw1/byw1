@@ -35,7 +35,7 @@ pip install fonttools brotli pillow
 python3 scripts/build-assets.py        # rewrites assets/*.svg
 ```
 
-- **Projects** are the `PROJECTS` list in `scripts/build-assets.py`. Each has a slug (the icon is `scripts/icons/<slug>.png`, 256×256 works best), a name, a status pill, a two-line tagline, two accent colours and tags. Add the matching `<a><img></a>` line in the README's projects block too.
+- **Projects** are the `PROJECTS` list in `scripts/build-assets.py`. Each has a slug (the icon is `scripts/icons/<slug>.png`, 256×256 works best), a name, a status pill, a two-line tagline, two accent colours and tags. Add the matching `<a><img></a>` line in the README's projects block too. Cards link to the project's GitHub repo.
 - **Books** are the `BOOKS` list in the same file.
 - **The signature** is two SVG paths in `scripts/signature.json`. The banner and the site's intro both draw them. To use your own, trace your signature as one or two paths (in a viewBox of about 900×350) and replace the file.
 

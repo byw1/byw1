@@ -109,12 +109,9 @@ PROJECTS = [
     dict(slug="comms", name="Comms", status="live", live=True,
          tagline=["A shared team inbox for iMessage,", "with a help desk built in."],
          accent=("#60a5fa", "#818cf8"), tags=["web", "open source"]),
-    dict(slug="charades", name="Charades", status="iPhone · soon", live=False,
-         tagline=["A forehead-card party game where you", "make your own decks. Offline, no ads."],
-         accent=("#9B5CFF", "#FFE500"), tags=["iOS", "open source"]),
-    dict(slug="imposter", name="Imposter", status="iPhone · soon", live=False,
-         tagline=["Everyone knows the secret word,", "except one of you. Offline, no ads."],
-         accent=("#FF4560", "#C8FF2E"), tags=["iOS", "open source"]),
+    dict(slug="creators", name="Select Creators", status="live", live=True,
+         tagline=["The free, open-source handbook for the", "creator economy. Every claim sourced."],
+         accent=("#8b9cff", "#c3a6ff"), tags=["web", "open source"]),
 ]
 CW, CH = 600, 250
 for i, p in enumerate(PROJECTS):

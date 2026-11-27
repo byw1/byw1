@@ -7,11 +7,10 @@
 ### projects
 
 <p align="center">
-  <a href="https://hired.tools"><img src="./assets/project-hired.svg" alt="Hired: the ATS for applicants" width="49%"></a>
-  <a href="https://recruited.tools"><img src="./assets/project-recruited.svg" alt="Recruited: post one role to every job board, split-test it, and see which brings people worth hiring" width="49%"></a>
-  <a href="https://comms.support"><img src="./assets/project-comms.svg" alt="Comms: a shared team inbox for iMessage" width="49%"></a>
-  <a href="https://bywilliaml.com/charades"><img src="./assets/project-charades.svg" alt="Charades: a forehead-card party game where you make your own decks" width="49%"></a>
-  <a href="https://bywilliaml.com/imposter"><img src="./assets/project-imposter.svg" alt="Imposter: everyone knows the secret word, except one of you" width="49%"></a>
+  <a href="https://github.com/shifulaboratories/Hired"><img src="./assets/project-hired.svg" alt="Hired: the ATS for applicants" width="49%"></a>
+  <a href="https://github.com/shifulaboratories/Recruited"><img src="./assets/project-recruited.svg" alt="Recruited: post one role to every job board, split-test it, and see which brings people worth hiring" width="49%"></a>
+  <a href="https://github.com/shifulaboratories/comms"><img src="./assets/project-comms.svg" alt="Comms: a shared team inbox for iMessage" width="49%"></a>
+  <a href="https://github.com/shifulaboratories/creators"><img src="./assets/project-creators.svg" alt="Select Creators: the free, open-source handbook for the creator economy" width="49%"></a>
 </p>
 
 <p align="center"><sub>more at <a href="https://bywilliaml.com/projects">bywilliaml.com/projects</a></sub></p>
